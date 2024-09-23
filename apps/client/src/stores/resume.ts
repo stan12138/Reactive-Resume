@@ -34,8 +34,11 @@ export const useResumeStore = create<ResumeStore>()(
           } else {
             state.resume.data = _set(state.resume.data, path, value);
           }
-
-          void debouncedUpdateResume(JSON.parse(JSON.stringify(state.resume)));
+          let v = false;
+          if(path=="basics.stan") {
+            v = true;
+          }
+          void debouncedUpdateResume(JSON.parse(JSON.stringify(state.resume)), v);
         });
       },
       addSection: () => {

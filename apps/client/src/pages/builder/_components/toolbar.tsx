@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import {
   ArrowClockwise,
   ArrowCounterClockwise,
+  FloppyDisk,
   CircleNotch,
   ClockClockwise,
   CubeFocus,
@@ -63,6 +64,18 @@ export const BuilderToolbar = () => {
   return (
     <motion.div className="fixed inset-x-0 bottom-0 mx-auto hidden py-6 text-center md:block">
       <div className="inline-flex items-center justify-center rounded-full bg-background px-4 shadow-xl">
+      <Tooltip content={t`保存`}>
+          <Button
+            size="icon"
+            variant="ghost"
+            className="rounded-none"
+            onClick={() => {
+              setValue("basics.stan", "hanyi");
+            }}
+          >
+            <FloppyDisk />
+          </Button>
+        </Tooltip>
         <Tooltip content={t`Undo`}>
           <Button
             size="icon"
